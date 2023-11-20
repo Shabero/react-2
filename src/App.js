@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Button from './Components/Button/Button'
+const App = () => {
+    const [state,setState] = useState(0)
 
-function App() {
+    const handleInscrease = () => {
+        setState(state + 1)
+    }
+
+
+    const handleDecrease = () => {
+        if (state === 0) {
+            setState(state)
+        } else {
+            setState(state - 1)
+        }
+    }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+      <div>
+        <h1>Hello</h1>
+          <button onClick={handleInscrease}>Increase</button>
+          <button onClick={handleDecrease}>Decrease</button>
+          <h2>{state}</h2>
 
+          {/*<Button text={'Shabdan'} />*/}
+          {/*<Button text={'Farukh'} />*/}
+          {/*<Button text={'Temirlan'} />*/}
+          {/*<Button text={'Bob'} />*/}
+      </div>
+  )
+}
 export default App;
